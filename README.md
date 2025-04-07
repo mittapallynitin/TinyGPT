@@ -17,6 +17,7 @@ TinyGPT is a decoder-only transformer architecture composed of:
   - Residual Connections
 - **Final Linear Layer**: Projects the decoder output to vocabulary size logits for prediction.
 
+```
 =====================================================================================
 Layer (type:depth-idx)                                       Param #
 =====================================================================================
@@ -39,7 +40,7 @@ Total params: 20,712
 Trainable params: 20,712
 Non-trainable params: 0
 =====================================================================================
-
+```
 
 ### ✨ Attention Mechanism
 Each decoder block uses **Multi-head Self-Attention** with a **causal mask**. The causal mask ensures that a token can only attend to itself and previous tokens (not future tokens), maintaining autoregressive generation integrity.
