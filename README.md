@@ -30,7 +30,7 @@ This is registered as a buffer in the model and applied during the forward pass.
 
 ---
 
-##✍️ Character-Level Tokenizer (CharTokenizer)
+## ✍️ Character-Level Tokenizer (CharTokenizer)
 
 This project uses a custom character-level tokenizer, which:
 	•	Builds a vocabulary from all unique characters in the dataset.
