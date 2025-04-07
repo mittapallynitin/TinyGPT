@@ -142,7 +142,9 @@ if __name__ == "__main__":
         expander = 2,
     )
     model = TinyDecoderModel(model_config).to(device)
-    model.load_state_dict(torch.load("tiny_decoder.pth", weights_only=True))
+    model.load_state_dict(torch.load("./checkpoints/tiny_decoder.pth", weights_only=True))
+    from torchinfo import summary
+    print(summary(model))
     model.eval()
     with torch.inference_mode():
         input = "the sun is shining"
