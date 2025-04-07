@@ -95,6 +95,7 @@ for _ in range(max_new_tokens):
 
 - **Causal Mask Shape**: Must be `(T, T)` and broadcastable to the attention layer.
 - **NaNs During Training**: Caused by improperly masked attention or high logits. Solved by proper causal masking and scaling.
+- **Mask in torch**: When using built in transformer layer the mash should have 0 and -inf not 1 and 0 for seq to attend to.
 - **Shifted Targets**: Critical to shift targets to ensure next-token prediction.
 - **Training Stability**: Initializing weights using Xavier initialization and applying LayerNorm stabilized early training.
 - **Logits Softmax**: During generation, use temperature scaling and softmax before sampling.
@@ -113,25 +114,28 @@ for _ in range(max_new_tokens):
 
 ## 📊 Results
 
-When trained on small toy datasets, TinyGPT is able to generate coherent sequences that follow training distribution patterns. More improvements can be made by training on richer corpora and increasing model depth.
+When trained on small toy datasets, TinyGPT is able to generate coherent sequences that follow training distribution patterns. More improvements can be made by training on richer corpora and increasing model depth. The next steps from this
+project is to experiment with the KV Caching methods to speed up the inference. 
 
 ---
 
 ## 🧑‍💻 Author
 **Nitin Mittapally**  
-Machine Learning Engineer, NYC
+Machine Learning Engineer
 
 ---
 
-## 📂 Folder Structure (Coming Soon)
+## 📂 Folder Structure
 ```
 TinyGPT/
-├── model.py            # TinyGPT architecture
-├── train.py            # Training loop and data prep
-├── generate.py         # Text generation logic
-├── tokenizer.py        # Tokenizer logic
-├── data/               # Tokenized datasets
-├── checkpoints/        # Saved weights
+├── tiny_decoder.py             # TinyGPT architecture
+├── main.py                     # Training loop and data prep
+├── data_setup.py               # Text generation logic
+├── tokenizer.py                # Tokenizer logic
+├── data/
+├──── tinyshakespeare.txt       # Raw datasets
+├── checkpoints/
+├──── tiny_decoder.pth          # Saved weights
 └── README.md
 ```
 
